@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html lang="it">
+    <head>
+        <!-- Configurazione tecnica -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Titolo pagina -->
+        <title>Thomas – sito, pagina non trovata</title>
+
+        <!-- SEO -->
+        <meta name="description" content="Pagina di errore del sito di Thomas. La pagina richiesta non è disponibile o si è verificato un errore.">
+        <meta name="author" content="Thomas">
+        <meta name="robots" content="noindex, follow">
+
+        <!-- Social preview -->
+        <meta property="og:title" content="Pagina non trovata">
+        <meta property="og:description" content="La pagina richiesta non esiste oppure è stata spostata.">
+        <meta property="og:image" content="https://thomas.thobttl.it/thomaslogo.png">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="it_IT">
+
+        <!-- Twitter / X -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:title" content="Pagina non trovata">
+        <meta property="og:description" content="La pagina richiesta non esiste oppure è stata spostata.">
+        <meta name="twitter:image" content="https://thomas.thobttl.it/thomaslogo.png">
+
+        <!-- Icone -->
+        <link rel="icon" href="thomaslogo.png" type="image/png">
+        <link rel="apple-touch-icon" href="thomaslogo.png">
+
+        <!-- Colore browser -->
+        <meta name="theme-color" content="#93C47D">
+
+        <style>
+            body {
+                margin: 0;
+                position: relative;
+                height:100vh;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+            }
+
+            body::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+
+                background-image: url("schermi.jpg");
+                background-size: cover;
+                background-position: center;
+
+                filter: blur(40px);
+                opacity: 0.9;
+
+                z-index: -2;
+            }
+
+            body::after {
+                content: "";
+                position: fixed;
+                inset: 0;
+
+                background: rgba(20, 20, 45, 0.6); /* colore del blur */
+
+                z-index: -1;
+            }
+            #wip{
+                text-align:center;
+                font-family:Arial, sans-serif;
+                color:white;
+            }
+
+            #wip h1{
+                font-size:70px;
+                margin-bottom:20px;
+                text-shadow:0 0 20px rgba(0,0,0,0.7);
+            }
+            #cantiere{
+                font-size:28px;
+                font-weight:bold;
+                padding:10px 25px;
+
+                background: repeating-linear-gradient(
+                    45deg,
+                    #00ff7b,
+                    #00ff7b 20px,
+                    #2eb5c1 20px,
+                    #2eb5c1 40px
+                );
+
+                color:white;
+                display:inline-block;
+                border-radius:6px;
+                letter-spacing:3px;
+            }
+            #cartello-indietro{
+                position: fixed;
+                top: 30px;
+                left: 30px;
+
+                padding: 14px 35px;
+
+                font-family: Arial, sans-serif;
+                font-weight: bold;
+                font-size: 20px;
+                letter-spacing: 3px;
+
+                color: white;
+                text-decoration: none;
+
+                background: repeating-linear-gradient(
+                    45deg,
+                    #00ff7b,
+                    #00ff7b 18px,
+                    #2eb5c1 18px,
+                    #2eb4C1 36px
+                );
+
+                border: 4px solid #222;
+                border-radius: 8px;
+
+                transform: rotate(-7deg);
+
+                box-shadow:
+                    0 10px 25px rgba(0,0,0,0.6),
+                    inset 0 0 12px rgba(0,0,0,0.5);
+
+                transition: 0.25s;
+            }
+
+            #cartello-indietro span{
+                position: relative;
+                z-index: 2;
+            }
+
+            #cartello-indietro:hover{
+                transform: rotate(-2deg) scale(1.08);
+            }
+
+            #cartello-indietro::before,
+            #cartello-indietro::after{
+                content:"";
+                position:absolute;
+                width:10px;
+                height:10px;
+                background:#bbb;
+                border-radius:50%;
+                border:2px solid #444;
+                box-shadow: inset 0 0 3px #000;
+            }
+
+            #cartello-indietro::before{
+                top:5px;
+                left:5px;
+            }
+
+            #cartello-indietro::after{
+                bottom:5px;
+                right:5px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <a href="index.html" id="cartello-indietro">
+            <span>INDIETRO</span>
+        </a>
+
+        <div id="wip">
+            <h1>C' è STATO UN ERRORE!</h1>
+            <div id="cantiere">ERROR: </div>
+
+
+            <h1 id="titolo-errore">Errore</h1>
+            <p id="descrizione-errore"></p>
+        </div>
+
+        <script>
+
+            const params = new URLSearchParams(window.location.search);
+            let codice = params.get("e") || "404";
+
+            const titolo = document.getElementById("titolo-errore");
+            const descrizione = document.getElementById("descrizione-errore");
+            const cantiere = document.getElementById("cantiere");
+
+            switch(codice){
+
+            case "400":
+                titolo.innerText = "RICHIESTA NON VALIDA";
+                descrizione.innerText = "Il browser ha inviato una richiesta che il server non può comprendere.";
+                cantiere.innerText = "ERROR 400";
+            break;
+
+            case "401":
+                titolo.innerText = "AUTENTICAZIONE RICHIESTA";
+                descrizione.innerText = "Per accedere a questa pagina devi effettuare il login.";
+                cantiere.innerText = "ERROR 401";
+            break;
+
+            case "403":
+                titolo.innerText = "ACCESSO NEGATO";
+                descrizione.innerText = "Non hai il permesso di accedere a questa pagina.";
+                cantiere.innerText = "ERROR 403";
+            break;
+
+            case "404":
+                titolo.innerText = "PAGINA NON TROVATA";
+                descrizione.innerText = "La pagina che stai cercando non esiste oppure è stata spostata.";
+                cantiere.innerText = "ERROR 404";
+            break;
+
+            case "500":
+                titolo.innerText = "ERRORE DEL SERVER";
+                descrizione.innerText = "Il server ha incontrato un problema interno.";
+                cantiere.innerText = "ERROR 500";
+            break;
+
+            case "503":
+                titolo.innerText = "SERVIZIO NON DISPONIBILE";
+                descrizione.innerText = "Il server è temporaneamente non disponibile.";
+                cantiere.innerText = "ERROR 503";
+            break;
+
+            default:
+                titolo.innerText = "ERRORE";
+                descrizione.innerText = "Si è verificato un errore imprevisto.";
+                cantiere.innerText = "ERROR";
+            }
+
+        </script>
+
+    </body>
+</html>
