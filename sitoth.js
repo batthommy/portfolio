@@ -126,9 +126,13 @@ window.addEventListener("scroll", () => {
 
 		const rect = section.getBoundingClientRect();
 
-		/* se la sezione è almeno al 20% dello schermo */
+		// reset
+		section.style.scale = "1";
+
+		/* se la sezione è nella zona attiva */
 		if (rect.top <= window.innerHeight * 0.4 && rect.bottom > 0) {
 			current = section.id;
+			section.style.scale = "1.01";
 		}
 
 	});

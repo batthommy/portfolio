@@ -6,6 +6,12 @@
 *::first-letter {
     text-transform: uppercase;
 }
+
+::selection {
+    background-color: rgba(255, 172, 65, 0.685);
+    color: inherit;
+}
+
 html, body{
     height:100%;
 }
@@ -66,44 +72,7 @@ header {
     filter: blur(3px) brightness(0.8);
     display:block;
 }
-#span-prev {
-    position:absolute;
-    right:0px;
-    top:50%;
-    transform:translateY(-50%);
-    
-    font-size:40px;
-    color:rgba(255, 255, 255, 0.827);
-    cursor:pointer;
-    background-color: #892DE1;
-    text-align: left;
-    width: 55px;
-    border-top-left-radius: 23px;
-    border-bottom-left-radius: 23px;
-    height: 46px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 0.5px solid rgba(179, 179, 179, 0.616);
-    border-right: none;
-    line-height:46px;
-    transition: width 0.05s ease-in;
-}
-#span-prev a {
-    text-decoration: none;
-    color: inherit;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    height:100%;
-    width:100%;
-}
-#span-prev:hover {
-    width: 70px;
-}
-#span-prev:active {
-    width: 350px;
-}
+
 
 
 #nome-popup{
@@ -713,4 +682,443 @@ h3.th-h1 {
         margin: 10px;
         width: auto;
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   SEZIONE ATM — CAMBIO MONDO
+   ========================= */
+
+#ATM {
+    position: relative;
+    min-height: 650px;
+    overflow: hidden;
+
+    /* stacco netto dal resto del sito */
+    background:
+        radial-gradient(circle at 15% 20%, rgba(88,166,255,.16), transparent 30%),
+        linear-gradient(135deg, #0d1117 0%, #111820 55%, #0d1117 100%);
+
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+
+    border-top: 6px solid #58a6ff;
+    border-bottom: 6px solid #238636;
+}
+
+
+/* enorme scritta diagonale */
+#ATM h2 {
+    position: absolute;
+
+    top: 105px;
+    left: -70px;
+
+    width: 500px;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transform: rotate(-45deg);
+
+    text-align: center;
+    z-index: 2;
+}
+
+
+/* E... SI */
+#ATM h2 span:first-child {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: .9;
+
+    letter-spacing: .25rem;
+
+    color: #f0f6fc;
+
+    text-shadow:
+        4px 4px 0 #238636,
+        8px 8px 0 rgba(88,166,255,.35);
+
+    white-space: nowrap;
+}
+
+
+/* HO ANCHE LA MIA STARTUP */
+#ATM h2 span:last-child {
+    margin-top: 18px;
+
+    padding: 9px 22px;
+
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+
+    letter-spacing: .15rem;
+    text-transform: uppercase;
+
+    color: #0d1117;
+    background: #58a6ff;
+
+    box-shadow:
+        7px 7px 0 #238636;
+
+    white-space: nowrap;
+}
+
+
+/* decorazione gigante sullo sfondo */
+#ATM::after {
+    content: "ATM";
+
+    position: absolute;
+    right: -30px;
+    bottom: -80px;
+
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18rem;
+    font-weight: 900;
+
+    color: rgba(240,246,252,.035);
+
+    letter-spacing: -.8rem;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   CONTENUTO INTERNO ATM
+   ======================================== */
+
+
+/* ---------- TITOLO CENTRALE ---------- */
+
+.atm-titolo {
+    position: absolute;
+
+    top: 43%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 5;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 4.5rem);
+    font-weight: 500;
+
+    color: #58a6ff;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 0 20px rgba(88, 166, 255, 0.15);
+}
+
+
+/* ---------- ESPLOSIONE ---------- */
+
+.atm-esplosione {
+    position: absolute;
+
+    top: 35px;
+    right: 2%;
+
+    width: min(28vw, 430px);
+    height: 230px;
+
+    z-index: 4;
+
+    overflow: hidden;
+
+    /*
+       La parte destra scompare gradualmente.
+       Nessun rettangolo attorno all'immagine.
+    */
+    -webkit-mask-image:
+        linear-gradient(
+            to right,
+            black 0%,
+            black 45%,
+            transparent 100%
+        );
+
+    mask-image:
+        linear-gradient(
+            to right,
+            black 0%,
+            black 45%,
+            transparent 100%
+        );
+}
+
+.atm-esplosione img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    filter:
+        saturate(1.15)
+        contrast(1.08);
+
+    opacity: 0.9;
+}
+
+
+/* ===== FASCIA CONTINUA DI IMMAGINI ===== */
+
+.atm-gallery {
+    position: absolute;
+
+    left: 0;
+    bottom: 25px;
+
+    width: 85%;
+    height: 170px;
+
+    display: flex;
+    gap: 0;
+
+    z-index: 3;
+
+    overflow: hidden;
+
+    /* tutta la fascia scompare verso destra */
+    -webkit-mask-image: linear-gradient(
+        to right,
+        black 0%,
+        black 50%,
+        rgba(0,0,0,.8) 65%,
+        rgba(0,0,0,.3) 82%,
+        transparent 100%
+    );
+
+    mask-image: linear-gradient(
+        to right,
+        black 0%,
+        black 50%,
+        rgba(0,0,0,.8) 65%,
+        rgba(0,0,0,.3) 82%,
+        transparent 100%
+    );
+}
+
+
+/* le immagini formano UN'UNICA fascia */
+.atm-gallery img {
+    height: 100%;
+    width: 25%;
+
+    object-fit: cover;
+
+    border-radius: 0;
+    margin: 0;
+
+    opacity: 1;
+
+    /* niente effetto "4 immagini separate" */
+    flex-shrink: 0;
+}
+
+
+/* niente hover */
+.atm-gallery img:hover {
+    transform: none;
+    opacity: 1;
+}
+
+/* ========================================
+   ATM GIGANTE DIETRO
+   ======================================== */
+
+.atm-gigante {
+    position: absolute;
+
+    right: -35px;
+    bottom: -85px;
+
+    z-index: 1;
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: clamp(12rem, 23vw, 25rem);
+    font-weight: 900;
+
+    line-height: 1;
+
+    letter-spacing: -1rem;
+
+    color: rgba(240, 246, 252, 0.045);
+
+    user-select: none;
+    pointer-events: none;
+}
+
+
+/*
+    IMPORTANTISSIMO:
+    contenuti sopra alla scritta ATM gigante
+*/
+
+.atm-gallery,
+.atm-titolo,
+.atm-esplosione,
+.atm-sorpresa {
+    isolation: isolate;
+}
+
+
+/* ========================================
+   ATM — EFFETTO PUBBLICITÀ / COMIC POP
+   ======================================== */
+
+#ATM {
+    transform: scale(1);
+    transform-origin: center center;
+
+    transition:
+        transform 0.45s cubic-bezier(.2, 1.35, .4, 1),
+        box-shadow 0.45s ease,
+        filter 0.45s ease;
+
+    z-index: 1;
+}
+
+#ATM:hover {
+    transform: scale(1.025);
+
+    z-index: 10;
+
+    filter:
+        brightness(1.04)
+        saturate(1.08);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, .35),
+        0 0 0 3px rgba(88, 166, 255, .25);
+}
+
+
+/* anche il contenuto reagisce leggermente */
+#ATM:hover .atm-titolo {
+    transform:
+        translate(-50%, -50%)
+        scale(1.04);
+
+    text-shadow:
+        0 0 25px rgba(88, 166, 255, .45);
+}
+
+
+/* l'esplosione viene leggermente "verso di te" */
+#ATM:hover .atm-esplosione {
+    transform: scale(1.06) rotate(1deg);
+}
+
+
+/* la scritta diagonale fa un piccolo scatto */
+#ATM:hover .atm-sorpresa {
+    transform:
+        rotate(-45deg)
+        scale(1.035);
+}
+
+
+.atm-titolo {
+    transition:
+        transform .45s cubic-bezier(.2, 1.35, .4, 1),
+        text-shadow .45s ease;
+}
+
+.atm-esplosione {
+    transition:
+        transform .45s cubic-bezier(.2, 1.35, .4, 1);
+}
+
+.atm-sorpresa {
+    transition:
+        transform .45s cubic-bezier(.2, 1.35, .4, 1);
+}
+
+
+.atm-site-link {
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 10px 30px 12px;
+
+    color: #f0f6fc;
+    text-decoration: none;
+
+    border-top: 1px solid rgba(88, 166, 255, .35);
+    border-bottom: 2px solid #58a6ff;
+
+    background: rgba(13, 17, 23, .35);
+    backdrop-filter: blur(5px);
+
+    transition:
+        padding .35s cubic-bezier(.2, 1.4, .4, 1),
+        background .35s ease,
+        box-shadow .35s ease,
+        transform .35s cubic-bezier(.2, 1.4, .4, 1);
+}
+
+.atm-site-small {
+    font-family: 'Orbitron', sans-serif;
+    font-size: .6rem;
+    letter-spacing: .32rem;
+
+    color: #3fb950;
+}
+
+.atm-site-main {
+    margin-top: 3px;
+
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    letter-spacing: .08rem;
+}
+
+
+/* piccolo effetto "si apre" */
+.atm-site-link:hover {
+    padding-left: 48px;
+    padding-right: 48px;
+
+    transform: translateX(-50%) translateY(-3px) scale(1.04);
+
+    background: rgba(88, 166, 255, .09);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, .25),
+        0 4px 0 rgba(35, 134, 54, .7);
+}
+
+.atm-site-link:hover .atm-site-main {
+    color: #58a6ff;
 }
