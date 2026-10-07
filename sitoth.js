@@ -357,4 +357,59 @@ const annoFooter = document.getElementById("anno-footer");
 if (annoFooter) {
 	annoFooter.textContent = new Date().getFullYear();
 }
+
+
+// ========================================
+// DAL MIO LABORATORIO
+// ========================================
+
+const lavori = document.querySelectorAll(".lavoro");
+
+lavori.forEach(lavoro => {
+
+    const link = lavoro.dataset.link;
+    const github = lavoro.dataset.github;
+
+    const linkPrincipale = lavoro.querySelector(".lavoro-main-link");
+    const linkGithub = lavoro.querySelector(".lavoro-github");
+
+
+    // ===== LINK AL PROGETTO =====
+
+    if (
+        link &&
+        link.toLowerCase() !== "none"
+    ) {
+
+        linkPrincipale.href = link;
+        linkPrincipale.target = "_blank";
+        linkPrincipale.rel = "noopener noreferrer";
+
+    } else {
+
+        // nessuna pagina collegata
+        linkPrincipale.removeAttribute("href");
+
+        lavoro.classList.add("no-link");
+    }
+
+
+    // ===== LINK GITHUB =====
+
+    if (
+        github &&
+        github.toLowerCase() !== "none"
+    ) {
+
+        linkGithub.href = github;
+        linkGithub.target = "_blank";
+        linkGithub.rel = "noopener noreferrer";
+
+    } else {
+
+        // se GitHub è "none" il pulsante sparisce
+        linkGithub.remove();
+    }
+
+});
 });
