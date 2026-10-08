@@ -329,10 +329,21 @@ Beh, alcune note possono essere:
             </div>
         </div>
 
+        <!-- =========================
+            FOOTER V2
+            ========================= -->
+
         <footer id="footer-th">
             <div class="footer-inner">
-                <p class="footer-title">Thomas</p>
-                <p class="footer-text">Sito personale tra matematica, fisica e programmazione.</p>
+
+                <div class="footer-heading">
+                    <h2 class="footer-title" id="footer-secret">Thomas</h2>
+                    <span class="footer-version">V2</span>
+                </div>
+
+                <p class="footer-text">
+                    Sito personale tra matematica, fisica e programmazione.
+                </p>
 
                 <div class="footer-links">
                     <a href="#chi-sono">Chi sono</a>
@@ -343,7 +354,40 @@ Beh, alcune note possono essere:
                     <a href="#lavori">Lavori</a>
                 </div>
 
-                <p class="footer-copy">© <span id="anno-footer"></span> ThoBats</p>
+                <div class="footer-dashboard">
+
+                    <div class="footer-widget">
+                        <span class="footer-widget-label">ORA ITALIANA</span>
+                        <strong id="footer-clock">--:--:--</strong>
+                        <span id="footer-date">Caricamento...</span>
+                    </div>
+
+                    <div class="footer-widget">
+                        <span class="footer-widget-label">STATO DEL SITO</span>
+                        <strong id="footer-status">
+                            <span class="footer-status-dot"></span>
+                            <span id="footer-status-text">Verifica...</span>
+                        </strong>
+                        <span id="footer-status-detail">Controllo connessione</span>
+                    </div>
+
+                    <div class="footer-widget">
+                        <span class="footer-widget-label">IL TUO DISPOSITIVO</span>
+                        <strong id="footer-device">Rilevamento...</strong>
+                        <span id="footer-resolution">--</span>
+                    </div>
+
+                </div>
+
+                <div class="footer-bottom">
+                    <p>Creato, sviluppato e revisionato da <strong>Thomas Battaglia</strong>.</p>
+                    <p class="footer-copy">
+                        © <span id="anno-footer"></span> ThoBats — Tutti i diritti riservati.
+                    </p>
+                </div>
+
+                <div id="footer-easter-egg" aria-live="polite"></div>
+
             </div>
         </footer>
 

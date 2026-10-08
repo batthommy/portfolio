@@ -413,3 +413,203 @@ lavori.forEach(lavoro => {
 
 });
 });
+
+
+// ========================================
+// FOOTER V2
+// ========================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    // ====================================
+    // 1. OROLOGIO ITALIANO
+    // ====================================
+
+    const clock = document.getElementById("footer-clock");
+    const date = document.getElementById("footer-date");
+
+    function aggiornaOrologio() {
+        const now = new Date();
+
+        clock.textContent = new Intl.DateTimeFormat("it-IT", {
+            timeZone: "Europe/Rome",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false
+        }).format(now);
+
+        date.textContent = new Intl.DateTimeFormat("it-IT", {
+            timeZone: "Europe/Rome",
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        }).format(now);
+    }
+
+    aggiornaOrologio();
+    setInterval(aggiornaOrologio, 1000);
+
+
+    // ====================================
+    // 2. STATO DEL SITO
+    // ====================================
+
+    const statusText = document.getElementById("footer-status-text");
+    const statusDetail = document.getElementById("footer-status-detail");
+    const statusDot = document.querySelector(".footer-status-dot");
+
+    async function controllaStato() {
+
+        statusText.textContent = "Verifica...";
+        statusDetail.textContent = "Controllo connessione";
+
+        statusDot.classList.remove("online", "offline");
+
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 8000);
+
+        try {
+            const response = await fetch(
+                window.location.pathname + "?footer_check=" + Date.now(),
+                {
+                    method: "GET",
+                    cache: "no-store",
+                    signal: controller.signal
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("HTTP " + response.status);
+            }
+
+            statusText.textContent = "ONLINE";
+            statusDetail.textContent = "Pagina raggiungibile";
+            statusDot.classList.add("online");
+
+        } catch (error) {
+
+            statusText.textContent = "NON VERIFICATO";
+            statusDetail.textContent = navigator.onLine
+                ? "Controllo non riuscito"
+                : "Connessione assente";
+
+            statusDot.classList.add("offline");
+
+        } finally {
+            clearTimeout(timeout);
+        }
+    }
+
+    controllaStato();
+
+    // Ricontrollo ogni 60 secondi
+    setInterval(controllaStato, 60000);
+
+
+    // ====================================
+    // 3. INFORMAZIONI DISPOSITIVO
+    // ====================================
+
+    const deviceElement = document.getElementById("footer-device");
+    const resolutionElement = document.getElementById("footer-resolution");
+
+    function rilevaDispositivo() {
+
+        const ua = navigator.userAgent;
+
+        let sistema = "Sistema sconosciuto";
+        let browser = "Browser sconosciuto";
+
+        // Sistema operativo
+        if (/Android/i.test(ua)) {
+            sistema = "Android";
+        } else if (/iPhone|iPad|iPod/i.test(ua)) {
+            sistema = "iOS / iPadOS";
+        } else if (/Windows/i.test(ua)) {
+            sistema = "Windows";
+        } else if (/Macintosh|Mac OS X/i.test(ua)) {
+            sistema = "macOS";
+        } else if (/Linux/i.test(ua)) {
+            sistema = "Linux";
+        }
+
+        // Browser
+        if (/Edg\//i.test(ua)) {
+            browser = "Edge";
+        } else if (/OPR\/|Opera/i.test(ua)) {
+            browser = "Opera";
+        } else if (/Firefox|FxiOS/i.test(ua)) {
+            browser = "Firefox";
+        } else if (/Chrome|CriOS/i.test(ua)) {
+            browser = "Chrome";
+        } else if (/Safari/i.test(ua)) {
+            browser = "Safari";
+        }
+
+        deviceElement.textContent = `${sistema} · ${browser}`;
+
+        resolutionElement.textContent =
+            `${window.screen.width} × ${window.screen.height} px`;
+    }
+
+    rilevaDispositivo();
+
+
+    // ====================================
+    // 4. EASTER EGG
+    // ====================================
+
+    const secretTitle = document.getElementById("footer-secret");
+    const secretBox = document.getElementById("footer-easter-egg");
+
+    let secretClicks = 0;
+    let secretTimer;
+
+    secretTitle.addEventListener("click", () => {
+
+        secretClicks++;
+
+        clearTimeout(secretTimer);
+
+        secretTimer = setTimeout(() => {
+            secretClicks = 0;
+        }, 2000);
+
+        if (secretClicks >= 5) {
+
+            secretClicks = 0;
+
+            secretBox.classList.toggle("visible");
+
+            if (secretBox.classList.contains("visible")) {
+
+                secretBox.innerHTML = `
+                    <strong>⚡ ACCESSO SEGRETO SBLOCCATO ⚡</strong>
+                    <br><br>
+                    Hai trovato l'Easter Egg della V2!
+                    <br>
+                    Complimenti, esploratore del codice.
+                    <br><br>
+                    <span style="color:#4ade80">
+                        THOMAS SYSTEM // SECRET MODE
+                    </span>
+                `;
+
+            }
+        }
+    });
+
+
+    // ====================================
+    // 5. COPYRIGHT
+    // ====================================
+
+    const anno = document.getElementById("anno-footer");
+
+    if (anno) {
+        anno.textContent = new Date().getFullYear();
+    }
+
+});
