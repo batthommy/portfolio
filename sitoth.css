@@ -1742,3 +1742,1231 @@ h3.th-h1 {
         transition: none;
     }
 }
+
+
+/* ============================================================
+   THOMAS PORTFOLIO V2
+   RESPONSIVE DESIGN — COMPLETO
+   Tablet / Mobile / Mini smartphone
+   ============================================================ */
+
+
+/* ============================================================
+   1. REGOLE GENERALI
+   ============================================================ */
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    min-width: 0;
+}
+
+img,
+video,
+svg {
+    max-width: 100%;
+}
+
+input,
+textarea,
+button {
+    max-width: 100%;
+}
+
+#contgen,
+.sec,
+.invmail,
+.chi,
+.lavori-grid,
+.footer-inner {
+    min-width: 0;
+}
+
+.sec {
+    scroll-margin-top: 85px;
+}
+
+#tornasu {
+    width: clamp(42px, 5vw, 75px);
+    height: auto;
+    right: 12px;
+    bottom: 12px;
+    z-index: 1000;
+    border-radius: 12px;
+}
+
+
+/* ============================================================
+   2. TABLET — FINO A 1024px
+   ============================================================ */
+
+@media (max-width: 1024px) {
+
+    #contgen {
+        width: 92%;
+        padding: 20px 12px;
+    }
+
+    #introduzione {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        padding: 18px;
+        text-align: left;
+    }
+
+    .th-h1 {
+        max-width: 100%;
+        text-align: center;
+        font-size: clamp(1.2rem, 3vw, 1.7rem);
+        letter-spacing: .08rem;
+    }
+
+    .sec h2 {
+        font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+        line-height: 1.2;
+    }
+
+    #scorr-barr {
+        gap: 12px;
+        padding: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    #scorr-barr a {
+        font-size: .9rem;
+        white-space: nowrap;
+    }
+
+    #eventi {
+        left: 50%;
+        margin-left: -50vw;
+        width: 100vw;
+    }
+
+    #eventi p {
+        width: min(85%, 800px);
+        font-size: 1.1rem;
+        line-height: 1.7;
+        padding: 20px;
+    }
+
+    .invmail,
+    .chi {
+        width: 100%;
+        padding: 22px;
+        gap: 20px;
+    }
+
+    #mailForm,
+    #mailFormc {
+        min-width: 0;
+    }
+
+    .footer-inner {
+        width: 100%;
+    }
+
+}
+
+
+/* ============================================================
+   3. TABLET PICCOLI — FINO A 800px
+   ============================================================ */
+
+@media (max-width: 800px) {
+
+    #contgen {
+        width: 94%;
+    }
+
+    .sec {
+        margin-bottom: 35px;
+    }
+
+    .invmail,
+    .chi {
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 18px;
+    }
+
+    .invmail h2 {
+        flex: none;
+        width: 100%;
+        justify-content: flex-start;
+        text-align: left;
+        margin: 0;
+    }
+
+    .chi #h2 {
+        flex: none;
+        width: 100%;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .chi #h2 h2 {
+        text-align: left;
+    }
+
+    #mailForm,
+    #mailFormc {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    #ATM {
+        min-height: 680px;
+    }
+
+    #ATM h2.atm-sorpresa {
+        top: 105px;
+        left: -65px;
+        width: 380px;
+    }
+
+    #ATM h2.atm-sorpresa span:first-child {
+        font-size: 3.5rem;
+    }
+
+    #ATM h2.atm-sorpresa span:last-child {
+        font-size: .75rem;
+        padding: 8px 12px;
+    }
+
+    .atm-esplosione {
+        width: 35%;
+        height: 190px;
+        right: 0;
+    }
+
+    .atm-titolo {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+    }
+
+    .atm-gallery {
+        width: 100%;
+        height: 155px;
+    }
+
+    .lavori-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .lavoro-info h3 {
+        font-size: clamp(.9rem, 2vw, 1.3rem);
+    }
+
+}
+
+
+/* ============================================================
+   4. SMARTPHONE — FINO A 600px
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    /* ---------- PAGINA ---------- */
+
+    body {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    #contgen {
+        width: 100%;
+        padding: 12px 14px;
+        margin-bottom: 0;
+    }
+
+    .sec {
+        margin-bottom: 30px;
+        scroll-margin-top: 90px;
+    }
+
+    .sec h2 {
+        font-size: clamp(1.4rem, 5.5vw, 1.9rem);
+        line-height: 1.25;
+        margin: 22px 0;
+        padding: 0 8px;
+        overflow-wrap: anywhere;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    #hero {
+        overflow: hidden;
+    }
+
+    #img-apertura {
+        width: 100%;
+        min-height: 170px;
+        max-height: 260px;
+        object-fit: cover;
+        object-position: center;
+        filter: blur(1.5px) brightness(.85);
+    }
+
+
+    /* ---------- INTRODUZIONE ---------- */
+
+    #introduzione {
+        font-size: .95rem;
+        line-height: 1.75;
+        text-align: left;
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    .th-h1 {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        font-size: 1.2rem;
+        letter-spacing: .04rem;
+        line-height: 1.5;
+        margin-bottom: 22px;
+        overflow-wrap: anywhere;
+    }
+
+    h3.th-h1 {
+        margin-top: 28px;
+    }
+
+    h1.th-h1 {
+        font-size: 1.7rem;
+        font-weight: 700;
+        margin-bottom: 28px;
+    }
+
+
+    /* ---------- NAVIGAZIONE ---------- */
+
+    #scorr-barr {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+
+        gap: 8px;
+        padding: 10px 12px;
+
+        width: 100%;
+        max-width: 100%;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+
+        border-radius: 12px;
+        position: sticky;
+        top: 0;
+    }
+
+    #scorr-barr::-webkit-scrollbar {
+        display: none;
+    }
+
+    #scorr-barr a {
+        flex: 0 0 auto;
+        white-space: nowrap;
+
+        padding: 9px 13px;
+        border-radius: 8px;
+
+        font-size: .82rem;
+        font-weight: 600;
+
+        background: rgba(255,255,255,.12);
+
+        transition: background .2s ease;
+    }
+
+    #scorr-barr a.active {
+        background: rgba(255,255,255,.3);
+    }
+
+    #linea {
+        display: none;
+    }
+
+
+    /* ---------- CHI SONO ---------- */
+
+    #chi-sono {
+        padding: 0;
+    }
+
+    #chi-sono .img-wrap {
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    #chi-sono .img-wrap img {
+        min-height: 260px;
+        object-fit: cover;
+        filter: blur(5px) brightness(.6);
+    }
+
+    #chi-sono p {
+        font-size: .95rem;
+        line-height: 1.7;
+        text-align: left;
+        overflow-wrap: anywhere;
+    }
+
+
+    /* ---------- EVENTI ---------- */
+
+    #eventi {
+        width: 100vw;
+        left: 50%;
+        margin-left: -50vw;
+
+        padding: 18px 0 25px;
+    }
+
+    #eventi h2 {
+        padding: 0 15px;
+        font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+
+    #eventi img {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        object-fit: contain;
+    }
+
+    #eventi p {
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
+
+        padding: 20px 22px;
+
+        font-size: .95rem;
+        line-height: 1.75;
+        text-align: left;
+    }
+
+
+    /* ---------- CONTATTI ---------- */
+
+    .invmail,
+    .chi {
+        width: 100%;
+        padding: 20px 16px;
+        border-radius: 16px;
+        gap: 18px;
+    }
+
+    .invmail h2,
+    .chi #h2 h2 {
+        font-size: 1.4rem;
+        line-height: 1.3;
+    }
+
+    .chi #h2 {
+        padding-left: 10px;
+    }
+
+    #mailForm,
+    #mailFormc {
+        width: 100%;
+        max-width: none;
+        gap: 12px;
+    }
+
+    #mailForm input,
+    #mailForm textarea,
+    #mailFormc input,
+    #mailFormc textarea {
+        width: 100%;
+        min-width: 0;
+
+        font-size: 16px;
+        line-height: 1.5;
+
+        padding: 13px 14px;
+        border-radius: 10px;
+    }
+
+    #mailForm textarea,
+    #mailFormc textarea {
+        min-height: 120px;
+    }
+
+    #mailForm button,
+    #mailFormc button {
+        width: 100%;
+        min-height: 48px;
+        font-size: 1rem;
+        border-radius: 10px;
+    }
+
+
+    /* ========================================================
+       ATM — VERSIONE MOBILE RIDISEGNATA
+       ======================================================== */
+
+    #ATM {
+        width: 100vw;
+        left: 50%;
+        margin-left: -50vw;
+
+        min-height: 0;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 38px 0 0;
+
+        overflow: hidden;
+        isolation: isolate;
+
+        transform: none;
+        border-top-width: 4px;
+        border-bottom-width: 4px;
+    }
+
+    #ATM:hover {
+        transform: none;
+        filter: none;
+        box-shadow: none;
+    }
+
+
+    /* Titolo diagonale */
+
+    #ATM h2.atm-sorpresa {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        width: 100%;
+        max-width: 100%;
+
+        margin: 0 0 20px;
+        padding: 15px 8px 0;
+
+        transform: rotate(-7deg);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        z-index: 5;
+    }
+
+    #ATM h2.atm-sorpresa span:first-child {
+        font-size: clamp(2.4rem, 10vw, 4rem);
+        letter-spacing: .08rem;
+        white-space: normal;
+        text-align: center;
+    }
+
+    #ATM h2.atm-sorpresa span:last-child {
+        font-size: clamp(.58rem, 2.2vw, .8rem);
+        letter-spacing: .04rem;
+
+        padding: 9px 12px;
+        margin-top: 12px;
+
+        white-space: normal;
+        text-align: center;
+        max-width: 90%;
+    }
+
+    #ATM:hover .atm-sorpresa {
+        transform: rotate(-7deg);
+    }
+
+
+    /* Link ATM */
+
+    .atm-site-link {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        transform: none;
+
+        width: min(88%, 340px);
+        max-width: 100%;
+
+        margin: 12px auto 25px;
+        padding: 13px 15px;
+
+        text-align: center;
+
+        border: 1px solid rgba(88,166,255,.4);
+        border-bottom: 3px solid #58a6ff;
+        border-radius: 12px;
+
+        background: rgba(88,166,255,.08);
+    }
+
+    .atm-site-link:hover {
+        transform: none;
+        padding: 13px 15px;
+    }
+
+    .atm-site-small {
+        font-size: .58rem;
+        letter-spacing: .15rem;
+    }
+
+    .atm-site-main {
+        font-size: clamp(.8rem, 3.5vw, 1rem);
+        letter-spacing: .02rem;
+        overflow-wrap: anywhere;
+    }
+
+
+    /* Titolo principale */
+
+    .atm-titolo {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        transform: none;
+
+        width: 100%;
+        max-width: 100%;
+
+        padding: 0 16px;
+        margin: 15px auto;
+
+        font-size: clamp(2rem, 8vw, 3.5rem);
+        line-height: 1.1;
+
+        text-align: center;
+        white-space: normal;
+        overflow-wrap: anywhere;
+
+        z-index: 6;
+    }
+
+    #ATM:hover .atm-titolo {
+        transform: none;
+    }
+
+
+    /* Esplosione */
+
+    .atm-esplosione {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        width: min(75%, 300px);
+        height: 170px;
+
+        margin: 0 auto 15px;
+
+        z-index: 4;
+
+        -webkit-mask-image:
+            linear-gradient(to right,
+                transparent,
+                black 25%,
+                black 75%,
+                transparent);
+
+        mask-image:
+            linear-gradient(to right,
+                transparent,
+                black 25%,
+                black 75%,
+                transparent);
+    }
+
+    .atm-esplosione img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    #ATM:hover .atm-esplosione {
+        transform: none;
+    }
+
+
+    /* Fascia immagini */
+
+    .atm-gallery {
+        position: relative;
+
+        left: auto;
+        bottom: auto;
+
+        width: 100%;
+        height: 145px;
+
+        margin-top: 15px;
+
+        display: flex;
+        overflow: hidden;
+
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
+    .atm-gallery img {
+        width: 33.333%;
+        height: 100%;
+
+        flex: 0 0 33.333%;
+        object-fit: cover;
+    }
+
+    .atm-gallery img:nth-child(n+4) {
+        display: none;
+    }
+
+
+    /* Scritta decorativa */
+
+    .atm-gigante {
+        font-size: 11rem;
+        right: -20px;
+        bottom: 90px;
+        opacity: .5;
+    }
+
+    #ATM::after {
+        font-size: 10rem;
+        right: -15px;
+        bottom: 10px;
+    }
+
+
+    /* ========================================================
+       LAVORI — MOSAICO MOBILE
+       ======================================================== */
+
+    #lavori {
+        margin-top: 45px;
+        margin-bottom: 45px;
+        padding: 0;
+    }
+
+    .lavori-header {
+        margin-bottom: 22px;
+    }
+
+    #lavori .lavori-header h2 {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+        line-height: 1.15;
+        padding: 0 8px;
+    }
+
+    .lavori-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        grid-template-rows:
+            210px
+            190px
+            190px
+            200px;
+
+        gap: 0;
+
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .lavoro {
+        min-width: 0;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .lavoro-1 {
+        grid-column: 1 / 3;
+        grid-row: 1;
+    }
+
+    .lavoro-2 {
+        grid-column: 1;
+        grid-row: 2 / 4;
+    }
+
+    .lavoro-3 {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .lavoro-4 {
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .lavoro-5 {
+        grid-column: 1 / 3;
+        grid-row: 4;
+        min-height: 0;
+    }
+
+    .lavoro-info {
+        max-width: 100%;
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .lavoro-info h3 {
+        font-size: clamp(.85rem, 3vw, 1.15rem);
+        line-height: 1.2;
+        overflow-wrap: anywhere;
+    }
+
+    .lavoro-numero {
+        font-size: .7rem;
+    }
+
+    .lavoro-github {
+        max-width: calc(100% - 12px);
+    }
+
+
+    /* ========================================================
+       FOOTER
+       ======================================================== */
+
+    #footer-th {
+        padding: 38px 16px 22px;
+        margin-top: 35px;
+    }
+
+    .footer-inner {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .footer-heading {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .footer-title {
+        font-size: 1.7rem;
+    }
+
+    .footer-text {
+        font-size: .9rem;
+        line-height: 1.7;
+    }
+
+    .footer-links {
+        gap: 8px;
+    }
+
+    .footer-links a {
+        padding: 10px 12px;
+        font-size: .85rem;
+    }
+
+    .footer-dashboard {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .footer-widget {
+        padding: 17px;
+        border-radius: 12px;
+    }
+
+    .footer-bottom {
+        text-align: center;
+    }
+
+    .footer-bottom p,
+    .footer-copy {
+        font-size: .8rem;
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+    }
+
+
+    /* ---------- POPUP ---------- */
+
+    #nome-popup,
+    .zoom-popup {
+        padding: 16px;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+
+    .nome-box,
+    .zoom-box {
+        width: 100%;
+        max-width: 360px;
+        max-height: calc(100dvh - 32px);
+
+        overflow-y: auto;
+
+        padding: 22px;
+        border-radius: 16px;
+    }
+
+    .nome-box input {
+        font-size: 16px;
+        min-height: 44px;
+    }
+
+    .nome-bottoni button,
+    .zoom-actions button {
+        min-height: 44px;
+    }
+
+    .nome-bottoni button:active {
+        transform: scale(.97);
+    }
+
+    #tornasu {
+        width: 45px;
+        right: 12px;
+        bottom: 12px;
+    }
+
+}
+
+
+/* ============================================================
+   5. SMARTPHONE PICCOLI — FINO A 400px
+   ============================================================ */
+
+@media (max-width: 400px) {
+
+    #contgen {
+        padding: 10px 10px;
+    }
+
+    #introduzione {
+        padding: 14px;
+        font-size: .9rem;
+    }
+
+    .th-h1 {
+        font-size: 1.05rem;
+    }
+
+    h1.th-h1 {
+        font-size: 1.5rem;
+    }
+
+    #scorr-barr {
+        gap: 6px;
+        padding: 8px;
+    }
+
+    #scorr-barr a {
+        padding: 8px 10px;
+        font-size: .76rem;
+    }
+
+    .sec h2 {
+        font-size: 1.35rem;
+    }
+
+    #eventi p {
+        padding: 16px;
+        font-size: .9rem;
+    }
+
+    .invmail,
+    .chi {
+        padding: 17px 12px;
+    }
+
+    /* ATM */
+
+    #ATM {
+        padding-top: 30px;
+    }
+
+    #ATM h2.atm-sorpresa span:first-child {
+        font-size: 2.6rem;
+    }
+
+    #ATM h2.atm-sorpresa span:last-child {
+        font-size: .6rem;
+        padding: 8px;
+    }
+
+    .atm-site-link {
+        width: 90%;
+    }
+
+    .atm-titolo {
+        font-size: 2.1rem;
+    }
+
+    .atm-esplosione {
+        height: 140px;
+    }
+
+    .atm-gallery {
+        height: 115px;
+    }
+
+    /* LAVORI */
+
+    .lavori-grid {
+        grid-template-rows:
+            185px
+            170px
+            170px
+            185px;
+    }
+
+    .lavoro-info h3 {
+        font-size: .85rem;
+    }
+
+    #lavori .lavori-header h2 {
+        font-size: 1.9rem;
+    }
+
+    /* FOOTER */
+
+    .footer-title {
+        font-size: 1.5rem;
+    }
+
+    .footer-links a {
+        font-size: .8rem;
+    }
+
+}
+
+
+/* ============================================================
+   6. SCHERMI MINUSCOLI — FINO A 320px
+   ============================================================ */
+
+@media (max-width: 320px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    #contgen {
+        padding: 8px;
+    }
+
+    #introduzione {
+        font-size: .85rem;
+        padding: 12px;
+    }
+
+    .th-h1 {
+        font-size: .95rem;
+        letter-spacing: 0;
+    }
+
+    h1.th-h1 {
+        font-size: 1.4rem;
+    }
+
+    #scorr-barr a {
+        font-size: .72rem;
+        padding: 8px;
+    }
+
+    .sec h2 {
+        font-size: 1.2rem;
+    }
+
+    #eventi p {
+        font-size: .85rem;
+        padding: 12px;
+    }
+
+    .invmail,
+    .chi {
+        padding: 14px 10px;
+    }
+
+    .invmail h2,
+    .chi #h2 h2 {
+        font-size: 1.15rem;
+    }
+
+    /* ATM */
+
+    #ATM h2.atm-sorpresa {
+        transform: rotate(-4deg);
+    }
+
+    #ATM h2.atm-sorpresa span:first-child {
+        font-size: 2.2rem;
+    }
+
+    #ATM h2.atm-sorpresa span:last-child {
+        font-size: .55rem;
+    }
+
+    .atm-titolo {
+        font-size: 1.8rem;
+    }
+
+    .atm-site-small {
+        font-size: .5rem;
+        letter-spacing: .08rem;
+    }
+
+    .atm-site-main {
+        font-size: .8rem;
+    }
+
+    .atm-gallery {
+        height: 95px;
+    }
+
+    /* MOSAICO:
+       una card principale e quattro compatte */
+
+    .lavori-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        grid-template-rows:
+            180px
+            175px
+            175px
+            180px;
+    }
+
+    .lavoro-info h3 {
+        font-size: .75rem;
+        line-height: 1.2;
+    }
+
+    .lavoro-numero {
+        font-size: .6rem;
+    }
+
+    .footer-widget {
+        padding: 13px;
+    }
+
+    .footer-links {
+        gap: 6px;
+    }
+
+    .footer-links a {
+        padding: 8px;
+        font-size: .75rem;
+    }
+
+    .zoom-actions,
+    .nome-bottoni {
+        flex-wrap: wrap;
+    }
+
+    .zoom-actions button {
+        flex: 1 1 100%;
+    }
+
+    #tornasu {
+        width: 40px;
+        right: 8px;
+        bottom: 8px;
+    }
+
+}
+
+
+/* ============================================================
+   7. SCHERMI BASSI
+   ============================================================ */
+
+@media (max-height: 500px) {
+
+    .nome-box,
+    .zoom-box {
+        max-height: 90dvh;
+        overflow-y: auto;
+    }
+
+    #nome-popup,
+    .zoom-popup {
+        align-items: flex-start;
+        padding-top: 12px;
+    }
+
+}
+
+
+/* ============================================================
+   8. TOUCHSCREEN
+   ============================================================ */
+
+@media (hover: none) and (pointer: coarse) {
+
+    #ATM:hover {
+        transform: none;
+        filter: none;
+        box-shadow: none;
+    }
+
+    #ATM:hover .atm-esplosione {
+        transform: none;
+    }
+
+    .lavoro:hover {
+        transform: none;
+    }
+
+    .footer-widget:hover {
+        transform: none;
+    }
+
+    button,
+    a {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+}
+
+
+/* ============================================================
+   9. ACCESSIBILITÀ E ANIMAZIONI
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    #ATM,
+    .atm-titolo,
+    .atm-esplosione,
+    .atm-sorpresa,
+    .lavoro,
+    .footer-widget {
+        transition: none !important;
+        animation: none !important;
+    }
+
+}
